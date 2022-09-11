@@ -29,6 +29,7 @@ import type {
 
 export interface DaonationInterface extends utils.Interface {
   functions: {
+    "UNIT_REWARD_RATIO()": FunctionFragment;
     "addGovernanceTokenRewards(uint256)": FunctionFragment;
     "availableRewards()": FunctionFragment;
     "donate(uint256,uint256)": FunctionFragment;
@@ -53,6 +54,7 @@ export interface DaonationInterface extends utils.Interface {
 
   getFunction(
     nameOrSignatureOrTopic:
+      | "UNIT_REWARD_RATIO"
       | "addGovernanceTokenRewards"
       | "availableRewards"
       | "donate"
@@ -75,6 +77,10 @@ export interface DaonationInterface extends utils.Interface {
       | "voteForVaquinha"
   ): FunctionFragment;
 
+  encodeFunctionData(
+    functionFragment: "UNIT_REWARD_RATIO",
+    values?: undefined
+  ): string;
   encodeFunctionData(
     functionFragment: "addGovernanceTokenRewards",
     values: [PromiseOrValue<BigNumberish>]
@@ -160,6 +166,10 @@ export interface DaonationInterface extends utils.Interface {
     values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>]
   ): string;
 
+  decodeFunctionResult(
+    functionFragment: "UNIT_REWARD_RATIO",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(
     functionFragment: "addGovernanceTokenRewards",
     data: BytesLike
@@ -358,6 +368,8 @@ export interface Daonation extends BaseContract {
   removeListener: OnEvent<this>;
 
   functions: {
+    UNIT_REWARD_RATIO(overrides?: CallOverrides): Promise<[number]>;
+
     addGovernanceTokenRewards(
       rewardsAmount: PromiseOrValue<BigNumberish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
@@ -458,6 +470,8 @@ export interface Daonation extends BaseContract {
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
   };
+
+  UNIT_REWARD_RATIO(overrides?: CallOverrides): Promise<number>;
 
   addGovernanceTokenRewards(
     rewardsAmount: PromiseOrValue<BigNumberish>,
@@ -560,6 +574,8 @@ export interface Daonation extends BaseContract {
   ): Promise<ContractTransaction>;
 
   callStatic: {
+    UNIT_REWARD_RATIO(overrides?: CallOverrides): Promise<number>;
+
     addGovernanceTokenRewards(
       rewardsAmount: PromiseOrValue<BigNumberish>,
       overrides?: CallOverrides
@@ -730,6 +746,8 @@ export interface Daonation extends BaseContract {
   };
 
   estimateGas: {
+    UNIT_REWARD_RATIO(overrides?: CallOverrides): Promise<BigNumber>;
+
     addGovernanceTokenRewards(
       rewardsAmount: PromiseOrValue<BigNumberish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
@@ -810,6 +828,8 @@ export interface Daonation extends BaseContract {
   };
 
   populateTransaction: {
+    UNIT_REWARD_RATIO(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
     addGovernanceTokenRewards(
       rewardsAmount: PromiseOrValue<BigNumberish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
