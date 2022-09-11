@@ -7,13 +7,14 @@
       "sourceMap": true,
       "outDir": "./dist",
       "strict": true,
-      "rootDirs": ["./typechain-types", "./test"],
+      "rootDirs": ["./deployed", "./typechain-types", "./test"],
       "esModuleInterop": true
     },
     "exclude": ["dist", "node_modules"],
     "include": [
       "./test",
-      "./typechain-types"
+      "./typechain-types",
+      "./deployed"
     ]
   }
   

@@ -15,7 +15,9 @@
   },
   "files": [
     "dist/typechain-types/",
-    "typechain-types/"
+    "dist/deployed/",
+    "typechain-types/",
+    "deployed"
   ],
   "keywords": [],
   "author": "",
