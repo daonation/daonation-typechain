@@ -41,9 +41,9 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IDaonation__factory>;
     getContractFactory(
-      name: "Lock",
+      name: "MockToken",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.Lock__factory>;
+    ): Promise<Contracts.MockToken__factory>;
 
     getContractAt(
       name: "ERC20",
@@ -81,10 +81,10 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.IDaonation>;
     getContractAt(
-      name: "Lock",
+      name: "MockToken",
       address: string,
       signer?: ethers.Signer
-    ): Promise<Contracts.Lock>;
+    ): Promise<Contracts.MockToken>;
 
     // default types
     getContractFactory(

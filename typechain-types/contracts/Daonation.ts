@@ -34,6 +34,8 @@ export interface DaonationInterface extends utils.Interface {
     "donate(uint256,uint256)": FunctionFragment;
     "donationPeriod()": FunctionFragment;
     "donationToken()": FunctionFragment;
+    "isDonating(uint256)": FunctionFragment;
+    "isVoting(uint256)": FunctionFragment;
     "proposalLockPeriod()": FunctionFragment;
     "proposeVaquinha(string,uint256,address)": FunctionFragment;
     "redeemDonations(uint256)": FunctionFragment;
@@ -56,6 +58,8 @@ export interface DaonationInterface extends utils.Interface {
       | "donate"
       | "donationPeriod"
       | "donationToken"
+      | "isDonating"
+      | "isVoting"
       | "proposalLockPeriod"
       | "proposeVaquinha"
       | "redeemDonations"
@@ -90,6 +94,14 @@ export interface DaonationInterface extends utils.Interface {
   encodeFunctionData(
     functionFragment: "donationToken",
     values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "isDonating",
+    values: [PromiseOrValue<BigNumberish>]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "isVoting",
+    values: [PromiseOrValue<BigNumberish>]
   ): string;
   encodeFunctionData(
     functionFragment: "proposalLockPeriod",
@@ -165,6 +177,8 @@ export interface DaonationInterface extends utils.Interface {
     functionFragment: "donationToken",
     data: BytesLike
   ): Result;
+  decodeFunctionResult(functionFragment: "isDonating", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "isVoting", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "proposalLockPeriod",
     data: BytesLike
@@ -361,6 +375,16 @@ export interface Daonation extends BaseContract {
 
     donationToken(overrides?: CallOverrides): Promise<[string]>;
 
+    isDonating(
+      vaquinhaId: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<[boolean]>;
+
+    isVoting(
+      vaquinhaId: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<[boolean]>;
+
     proposalLockPeriod(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     proposeVaquinha(
@@ -452,6 +476,16 @@ export interface Daonation extends BaseContract {
 
   donationToken(overrides?: CallOverrides): Promise<string>;
 
+  isDonating(
+    vaquinhaId: PromiseOrValue<BigNumberish>,
+    overrides?: CallOverrides
+  ): Promise<boolean>;
+
+  isVoting(
+    vaquinhaId: PromiseOrValue<BigNumberish>,
+    overrides?: CallOverrides
+  ): Promise<boolean>;
+
   proposalLockPeriod(overrides?: CallOverrides): Promise<BigNumber>;
 
   proposeVaquinha(
@@ -542,6 +576,16 @@ export interface Daonation extends BaseContract {
     donationPeriod(overrides?: CallOverrides): Promise<BigNumber>;
 
     donationToken(overrides?: CallOverrides): Promise<string>;
+
+    isDonating(
+      vaquinhaId: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<boolean>;
+
+    isVoting(
+      vaquinhaId: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<boolean>;
 
     proposalLockPeriod(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -703,6 +747,16 @@ export interface Daonation extends BaseContract {
 
     donationToken(overrides?: CallOverrides): Promise<BigNumber>;
 
+    isDonating(
+      vaquinhaId: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    isVoting(
+      vaquinhaId: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     proposalLockPeriod(overrides?: CallOverrides): Promise<BigNumber>;
 
     proposeVaquinha(
@@ -772,6 +826,16 @@ export interface Daonation extends BaseContract {
     donationPeriod(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     donationToken(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    isDonating(
+      vaquinhaId: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    isVoting(
+      vaquinhaId: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     proposalLockPeriod(
       overrides?: CallOverrides

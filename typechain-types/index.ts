@@ -20,5 +20,5 @@ export type { DaonationToken } from "./contracts/DaonationToken";
 export { DaonationToken__factory } from "./factories/contracts/DaonationToken__factory";
 export type { IDaonation } from "./contracts/IDaonation";
 export { IDaonation__factory } from "./factories/contracts/IDaonation__factory";
-export type { Lock } from "./contracts/Lock";
-export { Lock__factory } from "./factories/contracts/Lock__factory";
+export type { MockToken } from "./contracts/test/MockToken";
+export { MockToken__factory } from "./factories/contracts/test/MockToken__factory";
