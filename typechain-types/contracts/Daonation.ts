@@ -36,6 +36,7 @@ export interface DaonationInterface extends utils.Interface {
     "donationPeriod()": FunctionFragment;
     "donationToken()": FunctionFragment;
     "isDonating(uint256)": FunctionFragment;
+    "isFinished(uint256)": FunctionFragment;
     "isVoting(uint256)": FunctionFragment;
     "proposalLockPeriod()": FunctionFragment;
     "proposeVaquinha(string,uint256,address)": FunctionFragment;
@@ -61,6 +62,7 @@ export interface DaonationInterface extends utils.Interface {
       | "donationPeriod"
       | "donationToken"
       | "isDonating"
+      | "isFinished"
       | "isVoting"
       | "proposalLockPeriod"
       | "proposeVaquinha"
@@ -103,6 +105,10 @@ export interface DaonationInterface extends utils.Interface {
   ): string;
   encodeFunctionData(
     functionFragment: "isDonating",
+    values: [PromiseOrValue<BigNumberish>]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "isFinished",
     values: [PromiseOrValue<BigNumberish>]
   ): string;
   encodeFunctionData(
@@ -188,6 +194,7 @@ export interface DaonationInterface extends utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "isDonating", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "isFinished", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "isVoting", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "proposalLockPeriod",
@@ -392,6 +399,11 @@ export interface Daonation extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[boolean]>;
 
+    isFinished(
+      vaquinhaId: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<[boolean]>;
+
     isVoting(
       vaquinhaId: PromiseOrValue<BigNumberish>,
       overrides?: CallOverrides
@@ -495,6 +507,11 @@ export interface Daonation extends BaseContract {
     overrides?: CallOverrides
   ): Promise<boolean>;
 
+  isFinished(
+    vaquinhaId: PromiseOrValue<BigNumberish>,
+    overrides?: CallOverrides
+  ): Promise<boolean>;
+
   isVoting(
     vaquinhaId: PromiseOrValue<BigNumberish>,
     overrides?: CallOverrides
@@ -594,6 +611,11 @@ export interface Daonation extends BaseContract {
     donationToken(overrides?: CallOverrides): Promise<string>;
 
     isDonating(
+      vaquinhaId: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<boolean>;
+
+    isFinished(
       vaquinhaId: PromiseOrValue<BigNumberish>,
       overrides?: CallOverrides
     ): Promise<boolean>;
@@ -770,6 +792,11 @@ export interface Daonation extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
+    isFinished(
+      vaquinhaId: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     isVoting(
       vaquinhaId: PromiseOrValue<BigNumberish>,
       overrides?: CallOverrides
@@ -848,6 +875,11 @@ export interface Daonation extends BaseContract {
     donationToken(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     isDonating(
+      vaquinhaId: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    isFinished(
       vaquinhaId: PromiseOrValue<BigNumberish>,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
