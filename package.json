@@ -1,7 +1,7 @@
 {
   "name": "@daonations/typechain",
   "repository": "github:daonation/daonation-typechain",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Types generated from daonation contracts.",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
